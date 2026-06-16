@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "noticiasmaule-1eccc"
-  }
+    "default": "noticiasmaule-1eccc",
+    "hablemosdelmaule": "noticiasmaule-1eccc"
+  },
+  "targets": {},
+  "etags": {}
 }
