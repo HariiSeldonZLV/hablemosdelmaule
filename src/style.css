@@ -1,180 +1,367 @@
-body{
-background:#111;
-color:#eee;
+// src/styles.scss
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+// Importar las fuentes desde Google Fonts con display=swap para mejor rendimiento
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Caprasimo&family=Noto+Sans+Grantha&display=swap');
+
+// Variables globales estilo Newsweek
+:root {
+  --newsweek-red: #cc0000;
+  --newsweek-dark-red: #990000;
+  --newsweek-black: #1a1a1a;
+  --newsweek-gray: #666666;
+  --newsweek-light-gray: #e0e0e0;
+  --newsweek-border: #d9d9d9;
+
+  // Fuentes personalizadas
+  --font-michroma: 'Michroma', cursive;
+  --font-caprasimo: 'Caprasimo', serif;
+  --font-noto: 'Noto Sans Grantha', sans-serif;
 }
 
-/* HERO */
-
-.hero{
-background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.trekkingchile.com%2Fes%2Fwp-content%2Fuploads%2Fsites%2F4%2F2017%2F11%2FValle-del-Maule.jpg&f=1&nofb=1&ipt=040fc7f7b40d9af59d9e7aa6945506dbde263da36e5a62a73a59b461df31d270");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-
-padding:120px 0;
-
-position:relative;
-color:white;
-text-align:center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* TITULOS */
-
-.section-title{
-color:#ff6a00;
-margin-bottom:20px;
+body {
+  font-family: var(--font-noto);
+  background-color: #f5f5f5;
+  color: var(--newsweek-black);
+  line-height: 1.6;
 }
 
-/* CARDS */
-
-.news-card{
-background:#1c1c1c;
-border:none;
-transition:0.3s;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.news-card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 20px rgba(0,0,0,0.6);
+// ============================================
+// FUENTE MICHROMA - FORZADA PARA HERO
+// ============================================
+.hero-title,
+.hero h1,
+.hero-section .hero-title,
+.hero-title span,
+h1.hero-title {
+  font-family: 'Michroma', cursive !important;
+  font-weight: 400 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
 }
 
-.news-card .card-title{
-color:#ff6a00;
+.hero-tagline,
+.hero-subtitle {
+  font-family: 'Michroma', cursive !important;
+  font-weight: 400 !important;
+  letter-spacing: 3px !important;
 }
 
-.news-card a{
-text-decoration:none;
-color:#ff6a00;
+// ============================================
+// ESTILOS DE FUENTES PERSONALIZADOS (globales)
+// ============================================
+
+// Títulos de noticias - Caprasimo
+.news-card-title,
+.top-story-title,
+.secondary-title,
+.section-title,
+.widget-title,
+.card-title,
+.news-list-title,
+mat-card-title {
+  font-family: 'Caprasimo', serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1.2 !important;
 }
 
-.news-card a:hover{
-color:#ff3c00;
+// Cuerpo de noticias - Noto Sans Grantha
+.news-card-summary,
+.top-story-description,
+.secondary-summary,
+.news-list-summary,
+.card-text,
+.article-body,
+.noticia-contenido,
+p,
+.news-card-content,
+.sidebar-content,
+mat-card-content {
+  font-family: 'Noto Sans Grantha', sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
 }
 
-.card-text{
-color:#eee;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Caprasimo', serif !important;
+  font-weight: 400 !important;
 }
 
-.card-body{
-color:#eee;
-}
-/* FORMULARIOS */
+// ============================================
+// CONTENEDORES Y GRID
+// ============================================
 
-.form-label{
-color:#eee;
-}
-
-.form-control{
-background:#222;
-color:#fff;
-border:1px solid #444;
+.newsweek-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.form-control:focus{
-background:#222;
-color:#fff;
-border-color:#ff6a00;
-box-shadow:none;
+.revista-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
 }
 
-/* SELECT */
+// ============================================
+// CARDS Y NOTICIAS
+// ============================================
 
-select.form-control{
-background:#222;
-color:#fff;
+.news-card {
+  background: white;
+  border: 1px solid var(--newsweek-border);
+  border-radius: 0;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
 }
 
-/* TEXTAREA */
-
-textarea.form-control{
-background:#222;
-color:#fff;
+.news-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.card{
-background:#1c1c1c;
-color:#eee;
-}
-.btn-warning{
-background:#ff6a00;
-border:none;
+.news-card-header {
+  padding: 15px 20px 0;
 }
 
-.btn-warning:hover{
-background:#ff3c00;
+.news-card-title {
+  font-family: 'Caprasimo', serif !important;
+  font-size: 1.25rem;
+  font-weight: 400 !important;
+  line-height: 1.3;
+  margin-bottom: 10px;
 }
 
-.card-img-top{
-height:200px;
-object-fit:cover;
+.news-card-title a {
+  color: var(--newsweek-black);
 }
 
-.destacada-img{
-height:400px;
-object-fit:cover;
+.news-card-meta {
+  font-size: 0.75rem;
+  color: var(--newsweek-gray);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-family: 'Noto Sans Grantha', sans-serif;
 }
 
-/* FOOTER */
-
-.footer{
-background:#000;
-color:#eee;
-padding:40px 0;
-border-top:2px solid #ff6a00;
+.news-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.footer-title{
-color:#ff6a00;
-margin-bottom:15px;
+.news-card-content {
+  padding: 15px 20px 20px;
 }
 
-.footer-text{
-color:#ccc;
-font-size:14px;
+.news-card-summary {
+  font-family: 'Noto Sans Grantha', sans-serif !important;
+  color: var(--newsweek-gray);
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
-.footer-links{
-list-style:none;
-padding:0;
+// ============================================
+// TOP STORY
+// ============================================
+
+.top-story {
+  background: white;
+  margin-bottom: 30px;
+  border: 1px solid var(--newsweek-border);
 }
 
-.footer-links li{
-margin-bottom:8px;
+.top-story-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.footer-links a{
-color:#ccc;
-text-decoration:none;
+.top-story-content {
+  padding: 20px;
 }
 
-.footer-links a:hover{
-color:#ff6a00;
+.top-story-category {
+  color: var(--newsweek-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 10px;
+  font-family: 'Michroma', cursive !important;
 }
 
-.footer-divider{
-border-color:#333;
-margin:20px 0;
+.top-story-title {
+  font-family: 'Caprasimo', serif !important;
+  font-size: 1.8rem;
+  font-weight: 400 !important;
+  margin-bottom: 15px;
+  line-height: 1.2;
 }
 
-.footer-copy{
-color:#888;
-font-size:13px;
+.top-story-title a {
+  color: var(--newsweek-black);
 }
 
-.hero .container{
-position:relative;
-z-index:2;
+.top-story-description {
+  font-family: 'Noto Sans Grantha', sans-serif !important;
+  color: var(--newsweek-gray);
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
-.hero::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(
-rgba(0,0,0,0.7),
-rgba(0,0,0,0.4)
-);
+// ============================================
+// SECONDARY GRID
+// ============================================
+
+.secondary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.secondary-story {
+  background: white;
+  border: 1px solid var(--newsweek-border);
+}
+
+.secondary-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.secondary-content {
+  padding: 15px;
+}
+
+.secondary-category {
+  color: var(--newsweek-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Michroma', cursive !important;
+  letter-spacing: 0.5px;
+}
+
+.secondary-title {
+  font-family: 'Caprasimo', serif !important;
+  font-size: 1.1rem;
+  font-weight: 400 !important;
+  margin: 10px 0;
+  line-height: 1.3;
+}
+
+.secondary-title a {
+  color: var(--newsweek-black);
+}
+
+.secondary-summary {
+  font-family: 'Noto Sans Grantha', sans-serif !important;
+  font-size: 0.9rem;
+  color: var(--newsweek-gray);
+  line-height: 1.6;
+}
+
+// ============================================
+// SIDEBAR
+// ============================================
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sidebar-widget {
+  background: white;
+  border: 1px solid var(--newsweek-border);
+}
+
+.sidebar-header {
+  background: var(--newsweek-red);
+  color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Michroma', cursive !important;
+}
+
+.sidebar-content {
+  padding: 15px;
+}
+
+// ============================================
+// LISTA NUMERADA
+// ============================================
+
+.news-list-numbered {
+  list-style: none;
+  padding: 0;
+}
+
+.news-list-numbered li {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--newsweek-border);
+}
+
+.news-list-numbered li:last-child {
+  border-bottom: none;
+}
+
+.news-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--newsweek-red);
+  line-height: 1;
+  font-family: 'Michroma', cursive !important;
+}
+
+.news-list-title {
+  font-family: 'Caprasimo', serif !important;
+  font-size: 1rem;
+  font-weight: 400 !important;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.news-list-title a {
+  color: var(--newsweek-black);
+}
+
+.news-list-summary {
+  font-family: 'Noto Sans Grantha', sans-serif !important;
+  font-size: 0.85rem;
+  color: var(--newsweek-gray);
+  line-height: 1.6;
+}
+
+// ============================================
+// RESPONSIVE
+// ============================================
+
+@media (max-width: 768px) {
+  .revista-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .secondary-grid {
+    grid-template-columns: 1fr;
+  }
 }

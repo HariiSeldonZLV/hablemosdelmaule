@@ -84,7 +84,7 @@ import { PodcastPlayerComponent } from '../../../../shared/components/podcast-pl
             <div class="sidebar-header">PUBLICIDAD</div>
             <div class="sidebar-content" style="text-align: center; padding: 40px 20px;">
               <p>Espacio disponible</p>
-              <small>contacto@noticiasmaule.cl</small>
+              <small>contacto&#64;noticiasmaule.cl</small>
             </div>
           </div>
         </div>

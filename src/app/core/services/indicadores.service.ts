@@ -13,12 +13,28 @@ export interface IndicadoresEconomicos {
   actualizado: string;
 }
 
+export interface CommodityAgricola {
+  nombre: string;
+  precio: number;
+  unidad: string;
+  variacion: number;
+  icono: string;
+}
+
+export interface DatosCommodities {
+  commodities: CommodityAgricola[];
+  actualizado: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class IndicadoresService {
   private indicadoresSubject = new BehaviorSubject<IndicadoresEconomicos | null>(null);
   public indicadores$ = this.indicadoresSubject.asObservable();
+
+  private commoditiesSubject = new BehaviorSubject<DatosCommodities | null>(null);
+  public commodities$ = this.commoditiesSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -28,6 +44,16 @@ export class IndicadoresService {
       error: (err) => {
         console.error('Error al obtener indicadores:', err);
         this.indicadoresSubject.next(this.getMockData());
+      }
+    });
+  }
+
+  actualizarCommodities(): void {
+    this.obtenerCommodities().subscribe({
+      next: (data) => this.commoditiesSubject.next(data),
+      error: (err) => {
+        console.error('Error al obtener commodities:', err);
+        this.commoditiesSubject.next(this.getMockCommodities());
       }
     });
   }
@@ -46,6 +72,11 @@ export class IndicadoresService {
     );
   }
 
+  private obtenerCommodities(): Observable<DatosCommodities> {
+    // Por ahora usamos datos simulados
+    return of(this.getMockCommodities());
+  }
+
   private getMockData(): IndicadoresEconomicos {
     return {
       dolar: 950,
@@ -53,6 +84,56 @@ export class IndicadoresService {
       utm: 65000,
       euro: 1020,
       ipc: 0.2,
+      actualizado: new Date().toISOString()
+    };
+  }
+
+  private getMockCommodities(): DatosCommodities {
+    return {
+      commodities: [
+        {
+          nombre: 'Trigo',
+          precio: 280,
+          unidad: 'USD/ton',
+          variacion: 1.2,
+          icono: 'grass'
+        },
+        {
+          nombre: 'Maíz',
+          precio: 220,
+          unidad: 'USD/ton',
+          variacion: -0.8,
+          icono: 'grass'
+        },
+        {
+          nombre: 'Uva',
+          precio: 450,
+          unidad: 'USD/ton',
+          variacion: 2.5,
+          icono: 'local_florist'
+        },
+        {
+          nombre: 'Manzana',
+          precio: 380,
+          unidad: 'USD/ton',
+          variacion: 0.5,
+          icono: 'local_florist'
+        },
+        {
+          nombre: 'Tomate',
+          precio: 120,
+          unidad: 'USD/ton',
+          variacion: -1.5,
+          icono: 'restaurant'
+        },
+        {
+          nombre: 'Leche',
+          precio: 0.45,
+          unidad: 'USD/litro',
+          variacion: 0.3,
+          icono: 'local_drink'
+        }
+      ],
       actualizado: new Date().toISOString()
     };
   }

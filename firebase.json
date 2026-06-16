@@ -6,7 +6,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist/noticiasmaule-angular",
+    "public": "dist/noticiasmaule-angular/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
