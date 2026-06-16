@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NoticiasmauleAngular
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.10.
@@ -57,3 +58,23 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# Portal Noticias Maule
+
+Portal de noticias desarrollado con Vue 3, Bootstrap y Firebase.
+
+## Funcionalidades
+
+- Publicación de noticias
+- Filtro por categorías
+- Noticia destacada
+- Registro de noticias vistas
+- Comentarios en noticias
+- Contador de comentarios
+
+## Tecnologías
+
+- Vue 3
+- Bootstrap
+
+>>>>>>> d22be05e0ffe24e3496e6d2d60d97363a5580749

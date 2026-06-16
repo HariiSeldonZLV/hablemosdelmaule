@@ -1,0 +1,180 @@
+body{
+background:#111;
+color:#eee;
+}
+
+/* HERO */
+
+.hero{
+background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.trekkingchile.com%2Fes%2Fwp-content%2Fuploads%2Fsites%2F4%2F2017%2F11%2FValle-del-Maule.jpg&f=1&nofb=1&ipt=040fc7f7b40d9af59d9e7aa6945506dbde263da36e5a62a73a59b461df31d270");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+padding:120px 0;
+
+position:relative;
+color:white;
+text-align:center;
+}
+
+/* TITULOS */
+
+.section-title{
+color:#ff6a00;
+margin-bottom:20px;
+}
+
+/* CARDS */
+
+.news-card{
+background:#1c1c1c;
+border:none;
+transition:0.3s;
+}
+
+.news-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(0,0,0,0.6);
+}
+
+.news-card .card-title{
+color:#ff6a00;
+}
+
+.news-card a{
+text-decoration:none;
+color:#ff6a00;
+}
+
+.news-card a:hover{
+color:#ff3c00;
+}
+
+.card-text{
+color:#eee;
+}
+
+.card-body{
+color:#eee;
+}
+/* FORMULARIOS */
+
+.form-label{
+color:#eee;
+}
+
+.form-control{
+background:#222;
+color:#fff;
+border:1px solid #444;
+}
+
+.form-control:focus{
+background:#222;
+color:#fff;
+border-color:#ff6a00;
+box-shadow:none;
+}
+
+/* SELECT */
+
+select.form-control{
+background:#222;
+color:#fff;
+}
+
+/* TEXTAREA */
+
+textarea.form-control{
+background:#222;
+color:#fff;
+}
+
+.card{
+background:#1c1c1c;
+color:#eee;
+}
+.btn-warning{
+background:#ff6a00;
+border:none;
+}
+
+.btn-warning:hover{
+background:#ff3c00;
+}
+
+.card-img-top{
+height:200px;
+object-fit:cover;
+}
+
+.destacada-img{
+height:400px;
+object-fit:cover;
+}
+
+/* FOOTER */
+
+.footer{
+background:#000;
+color:#eee;
+padding:40px 0;
+border-top:2px solid #ff6a00;
+}
+
+.footer-title{
+color:#ff6a00;
+margin-bottom:15px;
+}
+
+.footer-text{
+color:#ccc;
+font-size:14px;
+}
+
+.footer-links{
+list-style:none;
+padding:0;
+}
+
+.footer-links li{
+margin-bottom:8px;
+}
+
+.footer-links a{
+color:#ccc;
+text-decoration:none;
+}
+
+.footer-links a:hover{
+color:#ff6a00;
+}
+
+.footer-divider{
+border-color:#333;
+margin:20px 0;
+}
+
+.footer-copy{
+color:#888;
+font-size:13px;
+}
+
+.hero .container{
+position:relative;
+z-index:2;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(
+rgba(0,0,0,0.7),
+rgba(0,0,0,0.4)
+);
+}
