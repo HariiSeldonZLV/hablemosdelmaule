@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Noticias - solo usuarios autenticados pueden escribir
+    match /noticias/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Episodios de podcast
+    match /episodios/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Usuarios (solo el propio usuario puede ver su datos)
+    match /usuarios/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Configuración del sitio (solo admin)
+    match /config/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Estadísticas (solo lectura para todos)
+    match /estadisticas/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
