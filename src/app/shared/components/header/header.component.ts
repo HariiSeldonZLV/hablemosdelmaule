@@ -36,7 +36,7 @@ import { Subscription } from 'rxjs';
       <div class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <h1 class="hero-title">HABLEMOS DEL<span> MAULE</span></h1>
+          <h1 class="hero-title">UYUY<span> TV</span></h1>
           <p class="hero-subtitle">DOMINGO<span> 20 hrs</span></p>
           <p class="hero-tagline">La información PRECISA de Teno a Conti</p>
           <p class="hero-tagline">Fuentes confiables, datos veraces</p>
